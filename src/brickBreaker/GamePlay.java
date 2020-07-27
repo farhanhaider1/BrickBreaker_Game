@@ -24,7 +24,10 @@ public class GamePlay extends JPanel
     private int ballXdir = -1;
     private int ballYdir = -2;
 
+    private MapGenerator map;
+
     public GamePlay(){
+        map = new MapGenerator(3,7);
         addKeyListener(this);
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
@@ -36,6 +39,9 @@ public class GamePlay extends JPanel
         //background
         g.setColor(Color.GRAY);
         g.fillRect(1,1,692,592);
+
+        //draw map
+        map.drawBricks((Graphics2D) g);
 
         //border
         g.setColor(Color.BLACK);
@@ -67,6 +73,12 @@ public class GamePlay extends JPanel
                     (ballPosX,ballPosY,20,20).intersects(
                             new Rectangle(playerX,550,100,8))){
                 ballYdir = -ballYdir;
+            }
+
+            for(int i = 0; i<map.bricks.length; i++){
+                for(int j = 0; j<map.bricks[0].length; j++){
+
+                }
             }
 
             ballPosX += ballXdir;
